@@ -7,6 +7,7 @@ namespace Diwen.FivaHeaders
     [XmlType(Namespace = "http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader")]
     public partial class ReportDataContext
     {
-        public string ReportReferenceID {get; set;}
+        [XmlElement("ReportReferenceID")]
+        public string ReportReferenceId {get; set;}
     }
 }

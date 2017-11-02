@@ -3,7 +3,7 @@ namespace Diwen.FivaHeaders.Test
     using System;
     using System.IO;
     using Xunit;
-    public class AifmdHeaderTest
+    public class AIFMDHeaderTest
     {
         [Fact]
         public void Import()
@@ -20,10 +20,22 @@ namespace Diwen.FivaHeaders.Test
             aifmdHeader.ToFile(path);
         }
 
+        [Fact]
+        public void Roundtrip()
+        {
+            var tempFile = Path.Combine("data", "temp.xml");
+
+            var first = CreateFivaAIFMDHeader();
+            first.ToFile(tempFile);
+            var second = FivaAIFMDHeader.FromFile(tempFile);
+
+            Assert.True(first.ContentMatch(second));
+        }
+
         private FivaAIFMDHeader CreateFivaAIFMDHeader()
         => new FivaAIFMDHeader
         {
-            InstanceCreationDateTime = new DateTime(2015, 01, 07, 16, 22, 00),
+            InstanceCreationDateTime = new DateTime(2015, 01, 07, 16, 22, 00, DateTimeKind.Local),
             ReportingPeriod = "2014-12-31",
             ReportingEntityType = FivaAIFMDHeader.EntityType.TKtunnus,
             ReportingEntity = "9999999",
@@ -35,8 +47,8 @@ namespace Diwen.FivaHeaders.Test
             ContactPersonEmail = "tylle.testaaja@fiva.fi",
             ContactPersonTelephone = "+358-00 000 0000",
             Comment = "Revision123",
-            TestFlag = "false",
-            ReportReferenceID = "AIFMD_AIFM_00001",
+            Test = false,
+            ReportReferenceId = "AIFMD_AIFM_00001",
             Files = new[] { "AIF_354_9999999_20141231.encrypted.xml" },
         };
     }

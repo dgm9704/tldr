@@ -1,7 +1,6 @@
 namespace Diwen.FivaHeaders
 {
     using System;
-    using System.ComponentModel;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -26,20 +25,6 @@ namespace Diwen.FivaHeaders
             Ytunnus,
 
             LEI,
-        }
-
-        [XmlIgnore]
-        public string[] Files
-        {
-            get => BasicHeader.File.Select(f => f.FilePath).ToArray();
-            set => BasicHeader.File = value.Select(f => new File { FilePath = f }).ToArray();
-        }
-
-        [XmlIgnore]
-        public string ReportReferenceID
-        {
-            get => BasicHeader.ReportDataContext.ReportReferenceID;
-            set => BasicHeader.ReportDataContext.ReportReferenceID = value;
         }
 
         private static XmlSerializer serializer;
@@ -82,5 +67,27 @@ namespace Diwen.FivaHeaders
             using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
                 xml.Serialize(sw, header, ns);
         }
+
+        public bool ContentMatch(FivaAIFMDHeader other)
+        => other != null
+            && other.Test == this.Test
+            && other.ReportingEntityType == this.ReportingEntityType
+            && other.ReportReferenceId.Equals(this.ReportReferenceId)
+            && other.TypeOfReportingInstitution.Equals(this.TypeOfReportingInstitution)
+            && other.ReportingEntity.Equals(this.ReportingEntity)
+            && other.ReportingPeriod.Equals(this.ReportingPeriod)
+            && other.Comment.Equals(this.Comment)
+            && other.Files.SequenceEqual(this.Files);
+
+            // InstanceCreationDateTime = new DateTime(2015, 01, 07, 16, 22, 00, DateTimeKind.Local),
+
+            // ReportingApplicationName = "ApplicationX",
+            // ReportingApplicationVersion = "1.0.0",
+
+            // ContactPersonFirstName = "Tylle",
+            // ContactPersonLastName = "Testaaja",
+            // ContactPersonEmail = "tylle.testaaja@fiva.fi",
+            // ContactPersonTelephone = "+358-00 000 0000",
+
     }
 }
