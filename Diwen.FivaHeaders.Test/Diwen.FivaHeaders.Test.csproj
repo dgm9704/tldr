@@ -16,4 +16,13 @@
     <ProjectReference Include="..\Diwen.FivaHeaders\Diwen.FivaHeaders.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Content Include="data\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="data\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,8 @@
-namespace tldr
+namespace Diwen.FivaHeaders
 {
     using System;
     using System.ComponentModel;
+    using System.IO;
     using System.Xml.Serialization;
 
     [Serializable]
@@ -25,5 +26,11 @@ namespace tldr
             LEI,
         }
 
+        public static FivaAIFMDHeader FromFile(string path)
+        {
+            var xml = new XmlSerializer(typeof(FivaAIFMDHeader));
+            using (var file = new FileStream(path, FileMode.Open))
+                return (FivaAIFMDHeader)xml.Deserialize(file);
+        }
     }
 }
