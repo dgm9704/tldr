@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+
+	<!-- Basic Header root element -->
+	<xsd:element name="BasicHeader" type="BasicHeaderType"/>
+
+	<!-- Header Information Type -->
+	<xsd:complexType name="BasicHeaderType">
+		<xsd:sequence>
+			<xsd:element name="ReportDataContext" type="ReportDataContextType"/>
+			<xsd:element name="File" type="FileType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Report Data Context-->
+	<xsd:complexType name="ReportDataContextType">
+		<xsd:sequence>
+			<xsd:element name="ReportReferenceID" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- File -->
+	<xsd:complexType name="FileType">
+		<xsd:sequence>
+			<xsd:element name="FilePath" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
