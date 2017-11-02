@@ -1,7 +1,6 @@
 namespace Diwen.FivaHeaders
 {
     using System;
-    using System.ComponentModel;
 
     public class FivaHeader
     {
@@ -27,7 +26,6 @@ namespace Diwen.FivaHeaders
 
         public string Comment { get; set; }
 
-        [DefaultValue("false")]
         public string TestFlag { get; set; } = "false";
 
         public BasicHeader BasicHeader { get; set; } = new BasicHeader();
