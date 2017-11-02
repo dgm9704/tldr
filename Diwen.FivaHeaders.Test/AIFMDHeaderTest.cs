@@ -37,7 +37,7 @@ namespace Diwen.FivaHeaders.Test
         {
             InstanceCreationDateTime = new DateTime(2015, 01, 07, 16, 22, 00, DateTimeKind.Local),
             ReportingPeriod = "2014-12-31",
-            ReportingEntityType = FivaAIFMDHeader.EntityType.TKtunnus,
+            ReportingEntityType = ReportingEntityType.TKtunnus,
             ReportingEntity = "9999999",
             TypeOfReportingInstitution = "354",
             ReportingApplicationName = "ApplicationX",
