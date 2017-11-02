@@ -8,7 +8,7 @@ namespace Diwen.FivaHeaders
     [XmlRoot("BasicHeader", Namespace = "http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader", IsNullable = false)]
     public partial class BasicHeader
     {
-        public ReportDataContext ReportDataContext { get; set; }
+        public ReportDataContext ReportDataContext { get; set; } = new ReportDataContext();
 
         [XmlElement("File")]
         public File[] File { get; set; }

@@ -30,6 +30,6 @@ namespace Diwen.FivaHeaders
         [DefaultValue("false")]
         public string TestFlag { get; set; } = "false";
 
-        public BasicHeader BasicHeader { get; set; }
+        public BasicHeader BasicHeader { get; set; } = new BasicHeader();
     }
 }
