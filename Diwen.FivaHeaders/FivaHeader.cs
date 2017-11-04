@@ -44,20 +44,7 @@ namespace Diwen.FivaHeaders
             set => BasicHeader.ReportDataContext.ReportReferenceId = value;
         }
 
-        private static Lazy<XmlSerializerNamespaces> namespaces = new Lazy<XmlSerializerNamespaces>(() => GetNamespaces());
-        internal static XmlSerializerNamespaces Namespaces => namespaces.Value;
-        private static XmlSerializerNamespaces GetNamespaces()
-        {
-            var ns = new XmlSerializerNamespaces();
-            xmlNames.ToList().ForEach(n => ns.Add(n.Key, n.Value));
-            return ns;
-        }
-
-        private static Dictionary<string, string> xmlNames = new Dictionary<string, string>()
-        {
-            ["bh"] = "http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader",
-            ["xsi"] = "http://www.w3.org/2001/XMLSchema-instance"
-        };
+       
 
         public bool ContentMatch(FivaHeader other)
         => other != null
@@ -69,5 +56,8 @@ namespace Diwen.FivaHeaders
             && other.ReportingPeriod.Equals(this.ReportingPeriod)
             && other.Comment.Equals(this.Comment)
             && other.Files.SequenceEqual(this.Files);
+
+        private static Lazy<XmlSerializer> serializer = new Lazy<XmlSerializer>(() => new XmlSerializer(typeof(FivaHeader)));
+        private static XmlSerializer Serializer => serializer.Value;
     }
 }

@@ -23,7 +23,7 @@ namespace Diwen.FivaHeaders.Test
         [Fact]
         public void Roundtrip()
         {
-            var tempFile = Path.Combine("data", "temp.xml");
+            var tempFile = Path.Combine("data", "aifmd_header_temp.xml");
 
             var first = CreateFivaAIFMDHeader();
             first.ToFile(tempFile);

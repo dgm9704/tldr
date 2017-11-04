@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FivaAIFMDHeader xmlns="http://www.fiva.fi/eu/fr/esrs/Header/FivaAIFMDHeader"
-xmlns:bh="http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<InstanceCreationDateTime>2015-01-07T16:22:00+02:00</InstanceCreationDateTime>
-<ReportingPeriod>2014-12-31</ReportingPeriod>
-<ReportingEntityType>TK-tunnus</ReportingEntityType>
-<ReportingEntity>9999999</ReportingEntity>
-<TypeOfReportingInstitution>354</TypeOfReportingInstitution>
-<ReportingApplicationName>ApplicationX</ReportingApplicationName>
-<ReportingApplicationVersion>1.0.0</ReportingApplicationVersion>
-<ContactPersonFirstName>Tylle</ContactPersonFirstName>
-<ContactPersonLastName>Testaaja</ContactPersonLastName>
-<ContactPersonEmail>tylle.testaaja@fiva.fi</ContactPersonEmail>
-<ContactPersonTelephone>+358-00 000 0000</ContactPersonTelephone>
-<Comment>Revision123</Comment>
-<TestFlag>false</TestFlag>
-<BasicHeader>
-<bh:ReportDataContext>
-<bh:ReportReferenceID>AIFMD_AIFM_00001</bh:ReportReferenceID>
-</bh:ReportDataContext>
-<bh:File>
-<bh:FilePath>AIF_354_9999999_20141231.encrypted.xml</bh:FilePath>
-</bh:File>
-</BasicHeader>
+<FivaAIFMDHeader 
+    xmlns="http://www.fiva.fi/eu/fr/esrs/Header/FivaAIFMDHeader" 
+    xmlns:bh="http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <InstanceCreationDateTime>2015-01-07T16:22:00+02:00</InstanceCreationDateTime>
+    <ReportingPeriod>2014-12-31</ReportingPeriod>
+    <ReportingEntityType>TK-tunnus</ReportingEntityType>
+    <ReportingEntity>9999999</ReportingEntity>
+    <TypeOfReportingInstitution>354</TypeOfReportingInstitution>
+    <ReportingApplicationName>ApplicationX</ReportingApplicationName>
+    <ReportingApplicationVersion>1.0.0</ReportingApplicationVersion>
+    <ContactPersonFirstName>Tylle</ContactPersonFirstName>
+    <ContactPersonLastName>Testaaja</ContactPersonLastName>
+    <ContactPersonEmail>tylle.testaaja@fiva.fi</ContactPersonEmail>
+    <ContactPersonTelephone>+358-00 000 0000</ContactPersonTelephone>
+    <Comment>Revision123</Comment>
+    <TestFlag>false</TestFlag>
+    <BasicHeader>
+        <bh:ReportDataContext>
+            <bh:ReportReferenceID>AIFMD_AIFM_00001</bh:ReportReferenceID>
+        </bh:ReportDataContext>
+        <bh:File>
+            <bh:FilePath>AIF_354_9999999_20141231.encrypted.xml</bh:FilePath>
+        </bh:File>
+    </BasicHeader>
 </FivaAIFMDHeader>

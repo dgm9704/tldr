@@ -42,6 +42,20 @@ namespace Diwen.FivaHeaders
                 Serializer.Serialize(sw, header, Namespaces);
         }
 
-        
+        private static Lazy<XmlSerializerNamespaces> namespaces = new Lazy<XmlSerializerNamespaces>(() => GetNamespaces());
+        internal static XmlSerializerNamespaces Namespaces => namespaces.Value;
+        private static XmlSerializerNamespaces GetNamespaces()
+        {
+            var ns = new XmlSerializerNamespaces();
+            xmlNames.ToList().ForEach(n => ns.Add(n.Key, n.Value));
+            return ns;
+        }
+
+        private static Dictionary<string, string> xmlNames = new Dictionary<string, string>()
+        {
+            ["bh"] = "http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader",
+            ["xsi"] = "http://www.w3.org/2001/XMLSchema-instance"
+        };
+
     }
 }
