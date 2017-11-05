@@ -71,6 +71,8 @@ namespace Diwen.FivaHeaders
         };
 
         private static Lazy<XmlSerializerNamespaces> namespaces = new Lazy<XmlSerializerNamespaces>(() => GetNamespaces());
+        private static Dictionary<Type, XmlSerializer> serializers = new Dictionary<Type, XmlSerializer>();
+
         private static XmlSerializerNamespaces Namespaces => namespaces.Value;
 
         private static XmlSerializerNamespaces GetNamespaces()
@@ -80,10 +82,24 @@ namespace Diwen.FivaHeaders
             return ns;
         }
 
-        internal static T FromFile<T>(string path, XmlSerializer serializer) where T : FivaHeader
+        internal static T FromFile<T>(string path) where T : FivaHeader
         {
             using (var file = new FileStream(path, FileMode.Open))
-                return (T)serializer.Deserialize(file);
+                return (T)GetSerializer<T>().Deserialize(file);
+        }
+
+        internal static void ToFile<T>(T header, string path) where T : FivaHeader
+        {
+            using (var file = new XmlTextWriter(path, Encoding.UTF8))
+                GetSerializer<T>().Serialize(file, header, GetNamespaces());
+        }
+
+        private static XmlSerializer GetSerializer<T>() where T : FivaHeader
+        {
+            var type = typeof(T);
+            if (!serializers.ContainsKey(type))
+                serializers.Add(type, new XmlSerializer(type));
+            return serializers[type];
         }
     }
 }
