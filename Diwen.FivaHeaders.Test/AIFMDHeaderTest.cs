@@ -32,7 +32,7 @@ namespace Diwen.FivaHeaders.Test
             Assert.True(first.ContentMatch(second));
         }
 
-        private FivaAIFMDHeader CreateFivaAIFMDHeader()
+        private static FivaAIFMDHeader CreateFivaAIFMDHeader()
         => new FivaAIFMDHeader
         {
             InstanceCreationDateTime = new DateTime(2015, 01, 07, 16, 22, 00, DateTimeKind.Local),

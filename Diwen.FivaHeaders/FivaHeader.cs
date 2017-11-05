@@ -58,12 +58,6 @@ namespace Diwen.FivaHeaders
             && other.Comment.Equals(this.Comment)
             && other.Files.SequenceEqual(this.Files);
 
-        public static void ToFile(FivaHeader header, string path, XmlSerializer serializer)
-        {
-            using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
-                serializer.Serialize(sw, header, Namespaces);
-        }
-
         private static Dictionary<string, string> xmlNames = new Dictionary<string, string>()
         {
             ["bh"] = "http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader",
@@ -84,19 +78,27 @@ namespace Diwen.FivaHeaders
 
         internal static T FromFile<T>(string path) where T : FivaHeader
         {
-            using (var file = new FileStream(path, FileMode.Open))
-                return (T)GetSerializer<T>().Deserialize(file);
+            using (var stream = new FileStream(path, FileMode.Open))
+                return FromStream<T>(stream);
         }
+
+        private static T FromStream<T>(Stream stream) where T : FivaHeader
+            => (T)GetSerializer<T>().Deserialize(stream);
 
         internal static void ToFile<T>(T header, string path) where T : FivaHeader
         {
-            using (var file = new XmlTextWriter(path, Encoding.UTF8))
-                GetSerializer<T>().Serialize(file, header, GetNamespaces());
+            using (var writer = new XmlTextWriter(path, Encoding.UTF8))
+                ToXmlWriter(writer, header);
         }
 
+        private static void ToXmlWriter<T>(XmlWriter writer, T header) where T : FivaHeader
+            => GetSerializer<T>().Serialize(writer, header, Namespaces);
+
         private static XmlSerializer GetSerializer<T>() where T : FivaHeader
+            => GetSerializer(typeof(T));
+
+        private static XmlSerializer GetSerializer(Type type)
         {
-            var type = typeof(T);
             if (!serializers.ContainsKey(type))
                 serializers.Add(type, new XmlSerializer(type));
             return serializers[type];
