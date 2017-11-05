@@ -2,12 +2,15 @@ namespace Diwen.FivaHeaders
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Text;
     using System.Xml;
     using System.Xml.Serialization;
 
     public class FivaHeader
     {
+        [XmlIgnore]
         public DateTime InstanceCreationDateTime { get; set; }
         public string ReportingPeriod { get; set; }
         public ReportingEntityType ReportingEntityType { get; set; }
@@ -44,8 +47,6 @@ namespace Diwen.FivaHeaders
             set => BasicHeader.ReportDataContext.ReportReferenceId = value;
         }
 
-       
-
         public bool ContentMatch(FivaHeader other)
         => other != null
             && other.Test == this.Test
@@ -57,7 +58,32 @@ namespace Diwen.FivaHeaders
             && other.Comment.Equals(this.Comment)
             && other.Files.SequenceEqual(this.Files);
 
-        private static Lazy<XmlSerializer> serializer = new Lazy<XmlSerializer>(() => new XmlSerializer(typeof(FivaHeader)));
-        private static XmlSerializer Serializer => serializer.Value;
+        public static void ToFile(FivaHeader header, string path, XmlSerializer serializer)
+        {
+            using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
+                serializer.Serialize(sw, header, Namespaces);
+        }
+
+        private static Dictionary<string, string> xmlNames = new Dictionary<string, string>()
+        {
+            ["bh"] = "http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader",
+            ["xsi"] = "http://www.w3.org/2001/XMLSchema-instance"
+        };
+
+        private static Lazy<XmlSerializerNamespaces> namespaces = new Lazy<XmlSerializerNamespaces>(() => GetNamespaces());
+        private static XmlSerializerNamespaces Namespaces => namespaces.Value;
+
+        private static XmlSerializerNamespaces GetNamespaces()
+        {
+            var ns = new XmlSerializerNamespaces();
+            xmlNames.ToList().ForEach(n => ns.Add(n.Key, n.Value));
+            return ns;
+        }
+
+        internal static T FromFile<T>(string path, XmlSerializer serializer) where T : FivaHeader
+        {
+            using (var file = new FileStream(path, FileMode.Open))
+                return (T)serializer.Deserialize(file);
+        }
     }
 }
