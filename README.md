@@ -6,7 +6,7 @@ to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
 I use [Visual Studio Code](https://code.visualstudio.com/) 
 on [Ubuntu 17.10](https://www.ubuntu.com/desktop/1710)
 
-Code is in C# 7, targeting 
+Code is written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/index) 7.0, targeting 
 [.NET Standard 2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md) / 
 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/)
 
@@ -22,7 +22,7 @@ http://www.gnu.org/licenses/lgpl.txt
 
 
 ## Diwen.FivaHeaders.Test
-.NET Core 2.0 project with code and data for testing the library, also serving as documentation
+.NET Core 2.0 test project with code and data for testing the library, also serving as documentation
 
 ### License
 Free Public License 1.0.0
