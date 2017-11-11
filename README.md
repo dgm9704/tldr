@@ -1,16 +1,18 @@
 # Introduction 
-tldr is a project to help read and write header files used for submitting AIFMDXML/XBRL reports 
+tldr is a project to help read and write header files used for submitting AIFMDXML/XBRL reports
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
 
 # Environment
 I use [Visual Studio Code](https://code.visualstudio.com/) 
 on [Ubuntu 17.10](https://www.ubuntu.com/desktop/1710)
 
-Code is in C# 7, targeting .NET Standard 2.0 / .NET Core 2.0
+Code is in C# 7, targeting 
+[.NET Standard 2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md) / 
+[.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/)
 
-Test framework is xUnit
+Test framework is [xUnit.net](https://xunit.github.io/)
 
-## Diwen.Fivaheaders
+## Diwen.FivaHeaders
 .NET Standard 2.0 library
 
 ### License:
