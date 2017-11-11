@@ -17,13 +17,12 @@ Test framework is [xUnit.net](https://xunit.github.io/)
 
 ### License:
 GNU Lesser General Public License v3.0
-http://www.gnu.org/licenses/gpl.txt
-http://www.gnu.org/licenses/lgpl.txt
+[http://www.gnu.org/licenses/gpl.txt](http://www.gnu.org/licenses/gpl.txt)
+[http://www.gnu.org/licenses/lgpl.txt](http://www.gnu.org/licenses/lgpl.txt)
 
 
 ## Diwen.FivaHeaders.Test
 .NET Core 2.0 test project with code and data for testing the library, also serving as documentation
 
 ### License
-Free Public License 1.0.0
-https://opensource.org/licenses/FPL-1.0.0
+[Free Public License 1.0.0](https://opensource.org/licenses/FPL-1.0.0)
