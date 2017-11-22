@@ -1,3 +1,7 @@
+
+
+[<img src="https://diwen.visualstudio.com/_apis/public/build/definitions/a8e7698a-4776-4376-9e15-b4998e54def7/4/badge"/>](https://diwen.visualstudio.com/tldr/_build/index?definitionId=4)
+
 # Introduction 
 tldr is a project to help read and write header ("envelope") files used for submitting AIFMDXML/XBRL reports
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
