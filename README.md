@@ -1,6 +1,21 @@
 # Introduction 
-tldr is a project to help read and write header files used for submitting AIFMDXML/XBRL reports
+tldr is a project to help read and write header ("envelope") files used for submitting AIFMDXML/XBRL reports
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
+
+## Specifications
+All specifications should be found in FIN-FSA (and Eurofiling) website, eg.
+
+[Description of electronic AIFMD reporting](http://www.finanssivalvonta.fi/en/Regulation/International_Projects/AIFMD/reporting/Documents/AIFMD_description_of_electronic_reporting_01042016.pdf)
+
+[Konekielisen tiedonvälityksen kuvaus, Solvenssi II -raportointi, taksonomia 2.1.0](http://www.fin-fsa.fi/Documents/SII_Full_konekielisen_tietojenvalityksen_kuvaus_versio_2_2_netti.pdf)
+
+[Yhteiseurooppalainen raportointi (COREP) - Konekielisen tietojenvälityksen kuvaus](http://www.finanssivalvonta.fi/fi/Saantely/Maarayskokoelma/Uusi/Documents/2013_26/EBA_ITS_konekielisen_tietojenvalityksen_kuvaus_2017.pdf)
+
+[http://www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaStandardHeader.xsd](http://www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaStandardHeader.xsd)
+
+[www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaAIFMDHeader.xsd](www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaAIFMDHeader.xsd)
+
+[http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader.xsd](http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader.xsd)
 
 # Environment
 I use [Visual Studio Code](https://code.visualstudio.com/) 
