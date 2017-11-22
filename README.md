@@ -32,7 +32,9 @@ Test framework is [xUnit.net](https://xunit.github.io/)
 
 ### License:
 GNU Lesser General Public License v3.0
+
 [http://www.gnu.org/licenses/gpl.txt](http://www.gnu.org/licenses/gpl.txt)
+
 [http://www.gnu.org/licenses/lgpl.txt](http://www.gnu.org/licenses/lgpl.txt)
 
 
