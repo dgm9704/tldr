@@ -23,7 +23,8 @@ All specifications should be found in FIN-FSA (and Eurofiling) website, eg.
 
 # Environment
 I use [Visual Studio Code](https://code.visualstudio.com/) 
-on [Ubuntu 17.10](https://www.ubuntu.com/desktop/1710)
+on [Ubuntu 17.10](https://www.ubuntu.com/desktop/1710) 
+and [Arch Linux](https://www.archlinux.org/)
 
 Code is written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/index) 7.0, targeting 
 [.NET Standard 2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md) / 
