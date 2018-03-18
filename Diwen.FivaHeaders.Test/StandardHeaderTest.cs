@@ -1,4 +1,4 @@
-//  Copyright (c) 2017 John Nordberg 
+//  Copyright (c) 2017-2018 John Nordberg 
 //  Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
 
 namespace Diwen.FivaHeaders.Test
@@ -38,21 +38,21 @@ namespace Diwen.FivaHeaders.Test
         private FivaStandardHeader CreateFivaStandardHeader()
         => new FivaStandardHeader
         {
-            InstanceCreationDateTime = new DateTime(2016, 04, 15, 12, 53, 05, DateTimeKind.Local),
-            ReportingPeriod = "2014-12-31",
+            InstanceCreationDateTime = new DateTime(2018, 03, 18, 13, 05, 42, DateTimeKind.Local),
+            ReportingPeriod = "2018-03-31",
             ReportingEntityType = ReportingEntityType.LEI,
             ReportingEntity = "00000000000000000098",
-            TypeOfReportingInstitution = "410",
-            ReportingApplicationName = "ApplicationX",
+            TypeOfReportingInstitution = "888",
+            ReportingApplicationName = "ReportingApplication",
             ReportingApplicationVersion = "1.0.0",
-            ContactPersonFirstName = "Tyyni",
-            ContactPersonLastName = "Testaaja",
-            ContactPersonEmail = "tyyni.testaaja@fiva.fi",
-            ContactPersonTelephone = "+358-00 000 0000",
-            Comment = "Just for comment purposes",
-            Test = false,
-            ReportReferenceId = "S2_ars_example_test_1",
-            Files = new[] { "qes_410_00000000000000000098_20160331.xbrl" },
+            ContactPersonFirstName = "First",
+            ContactPersonLastName = "Last",
+            ContactPersonEmail = "first.last@example.com",
+            ContactPersonTelephone = "+358 00 000 0000",
+            Comment = "Bar",
+            Test = true,
+            ReportReferenceId = "90aeaa55-275c-4410-874f-951142307d59",
+            Files = new[] { "spv_888_00000000000000000098_20180331.xbrl" },
         };
     }
 }

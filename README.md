@@ -17,9 +17,13 @@ All specifications should be found in FIN-FSA (and Eurofiling) website, eg.
 
 [http://www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaStandardHeader.xsd](http://www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaStandardHeader.xsd)
 
-[www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaAIFMDHeader.xsd](www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaAIFMDHeader.xsd)
+[http://www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaAIFMDHeader.xsd](http://www.finanssivalvonta.fi/fi/Raportointi/xbrl/Documents/FivaAIFMDHeader.xsd)
 
 [http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader.xsd](http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader.xsd)
+
+## Caveat
+The library DOES NOT VALIDATE CONTENTS of the header, ie. no checks are made for entity identifiers, dates/times, email address etc.
+Any content should be checked by other means after reading and/or before writing the header file.
 
 # Environment
 I use [Visual Studio Code](https://code.visualstudio.com/) 

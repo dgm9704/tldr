@@ -1,4 +1,4 @@
-//  Copyright (c) 2017 John Nordberg 
+//  Copyright (c) 2017-2018 John Nordberg 
 //  Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
 
 namespace Diwen.FivaHeaders.Test
@@ -38,21 +38,21 @@ namespace Diwen.FivaHeaders.Test
         private static FivaAIFMDHeader CreateFivaAIFMDHeader()
         => new FivaAIFMDHeader
         {
-            InstanceCreationDateTime = new DateTime(2015, 01, 07, 16, 22, 00, DateTimeKind.Local),
-            ReportingPeriod = "2014-12-31",
+            InstanceCreationDateTime = new DateTime(2018, 03, 18, 13, 03, 27, DateTimeKind.Local), 
+            ReportingPeriod = "2017-12-31",
             ReportingEntityType = ReportingEntityType.TKtunnus,
             ReportingEntity = "9999999",
-            TypeOfReportingInstitution = "354",
-            ReportingApplicationName = "ApplicationX",
+            TypeOfReportingInstitution = "777",
+            ReportingApplicationName = "ReportingApplication",
             ReportingApplicationVersion = "1.0.0",
-            ContactPersonFirstName = "Tylle",
-            ContactPersonLastName = "Testaaja",
-            ContactPersonEmail = "tylle.testaaja@fiva.fi",
-            ContactPersonTelephone = "+358-00 000 0000",
-            Comment = "Revision123",
-            Test = false,
-            ReportReferenceId = "AIFMD_AIFM_00001",
-            Files = new[] { "AIF_354_9999999_20141231.encrypted.xml" },
+            ContactPersonFirstName = "First",
+            ContactPersonLastName = "Last",
+            ContactPersonEmail = "first.last@example.com",
+            ContactPersonTelephone = "+358 00 000 0000",
+            Comment = "Foo",
+            Test = true,
+            ReportReferenceId = "ab17e980-876a-45a4-87d8-952ba797eae8",
+            Files = new[] { "AIF_777_9999999_20171231.encrypted.xml" },
         };
     }
 }

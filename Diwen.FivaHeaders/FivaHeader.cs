@@ -4,7 +4,7 @@
 //  Author:
 //       John Nordberg <john.nordberg@gmail.com>
 //
-//  Copyright (c) 2017 John Nordberg
+//  Copyright (c) 2017-2018 John Nordberg
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -31,7 +31,6 @@ namespace Diwen.FivaHeaders
 
     public class FivaHeader
     {
-        [XmlIgnore]
         public DateTime InstanceCreationDateTime { get; set; }
         public string ReportingPeriod { get; set; }
         public ReportingEntityType ReportingEntityType { get; set; }
@@ -76,7 +75,9 @@ namespace Diwen.FivaHeaders
             && other.TypeOfReportingInstitution.Equals(this.TypeOfReportingInstitution)
             && other.ReportingEntity.Equals(this.ReportingEntity)
             && other.ReportingPeriod.Equals(this.ReportingPeriod)
-            && other.Comment.Equals(this.Comment)
+            && other.Comment == null 
+                ? this.Comment == null 
+                : other.Comment.Equals(this.Comment)
             && other.Files.SequenceEqual(this.Files);
 
         private static Dictionary<string, string> xmlNames = new Dictionary<string, string>()
