@@ -1,7 +1,3 @@
-
-
-[<img src="https://diwen.visualstudio.com/_apis/public/build/definitions/a8e7698a-4776-4376-9e15-b4998e54def7/4/badge"/>](https://diwen.visualstudio.com/tldr/_build/index?definitionId=4)
-
 # Introduction 
 tldr is a project to help read and write header ("envelope") files used for submitting AIFMDXML/XBRL reports
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
@@ -31,12 +27,15 @@ on [Arch Linux](https://www.archlinux.org/)
 
 Code is written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/index) 7.0, targeting 
 [.NET Standard 2.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md) / 
-[.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/)
+[.NET Framework 4.5.2](https://docs.microsoft.com/en-us/dotnet/framework/)
+
 
 Test framework is [xUnit.net](https://xunit.github.io/)
 
+and test code is targeting [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/)
+
 ## Diwen.FivaHeaders
-.NET Standard 2.0 library
+.NET Standard 2.0 / .NET Framework 4.5.2 library
 
 ### License:
 GNU Lesser General Public License v3.0
