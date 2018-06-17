@@ -32,6 +32,6 @@ namespace Diwen.FivaHeaders
         public ReportDataContext ReportDataContext { get; set; } = new ReportDataContext();
 
         [XmlElement("File")]
-        public File[] File { get; set; }
+        public ReportFile[] File { get; set; }
     }
 }

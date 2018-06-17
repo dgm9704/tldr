@@ -26,7 +26,7 @@ namespace Diwen.FivaHeaders
 
     [Serializable]
     [XmlType(Namespace = "http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader")]
-    public partial class File
+    public partial class ReportFile
     {
         public string FilePath {get; set;}
     }

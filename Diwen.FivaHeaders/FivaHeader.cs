@@ -57,7 +57,7 @@ namespace Diwen.FivaHeaders
         public string[] Files
         {
             get => BasicHeader.File.Select(f => f.FilePath).ToArray();
-            set => BasicHeader.File = value.Select(f => new File { FilePath = f }).ToArray();
+            set => BasicHeader.File = value.Select(f => new ReportFile { FilePath = f }).ToArray();
         }
 
         [XmlIgnore]
