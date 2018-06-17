@@ -22,6 +22,7 @@
 namespace Diwen.FivaHeaders
 {
     using System;
+    using System.Xml;
     using System.Xml.Serialization;
 
     [Serializable]
@@ -43,5 +44,8 @@ namespace Diwen.FivaHeaders
 
         public void ToFile(string path)
         => ToFile<FivaAIFMDHeader>(this, path);
+
+        public XmlDocument ToXmlDocument()
+        => ToXmlDocument<FivaAIFMDHeader>(this);
     }
 }

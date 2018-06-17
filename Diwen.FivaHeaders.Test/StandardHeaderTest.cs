@@ -35,6 +35,18 @@ namespace Diwen.FivaHeaders.Test
             Assert.True(first.ContentMatch(second));
         }
 
+        [Fact]
+        public void CreateXmlDocument()
+        {
+            var tempFile = Path.Combine("data", "standard_header.xml");
+
+            var first = CreateFivaStandardHeader();
+            var document = first.ToXmlDocument();
+
+            Assert.True(document.DocumentElement.ChildNodes.Count > 1);
+        }
+
+
         private FivaStandardHeader CreateFivaStandardHeader()
         => new FivaStandardHeader
         {

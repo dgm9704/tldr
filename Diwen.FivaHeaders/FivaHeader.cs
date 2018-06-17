@@ -75,8 +75,8 @@ namespace Diwen.FivaHeaders
             && other.TypeOfReportingInstitution.Equals(this.TypeOfReportingInstitution)
             && other.ReportingEntity.Equals(this.ReportingEntity)
             && other.ReportingPeriod.Equals(this.ReportingPeriod)
-            && other.Comment == null 
-                ? this.Comment == null 
+            && other.Comment == null
+                ? this.Comment == null
                 : other.Comment.Equals(this.Comment)
             && other.Files.SequenceEqual(this.Files);
 
@@ -118,6 +118,16 @@ namespace Diwen.FivaHeaders
 
         private static XmlSerializer GetSerializer<T>() where T : FivaHeader
             => GetSerializer(typeof(T));
+
+        public static XmlDocument ToXmlDocument<T>(T header) where T : FivaHeader
+        {
+            var document = new XmlDocument();
+            var navigator = document.CreateNavigator();
+            using (XmlWriter writer = navigator.AppendChild())
+                GetSerializer<T>().Serialize(writer, header);
+
+            return document;
+        }
 
         private static XmlSerializer GetSerializer(Type type)
         {
