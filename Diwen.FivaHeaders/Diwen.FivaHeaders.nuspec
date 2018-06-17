@@ -5,7 +5,7 @@
     <version>0.1.0.0</version>
     <title>Diwen.FivaHeaders</title>
     <authors>John Nordberg</authors>
-    <owners>dgm9704</owners>
+    <owners>diwen</owners>
     <licenseUrl>https://www.gnu.org/licenses/lgpl.txt</licenseUrl>
     <projectUrl>https://github.com/dgm9704/tldr</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
