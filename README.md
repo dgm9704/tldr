@@ -32,7 +32,7 @@ Code is written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/index) 7.
 
 Test framework is [xUnit.net](https://xunit.github.io/)
 
-and test code is targeting [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/)
+and test code is targeting [.NET Core 2.1](https://docs.microsoft.com/en-us/dotnet/core/)
 
 ## Diwen.FivaHeaders
 .NET Standard 2.0 / .NET Framework 4.5.2 library
@@ -46,7 +46,7 @@ GNU Lesser General Public License v3.0
 
 
 ## Diwen.FivaHeaders.Test
-.NET Core 2.0 test project with code and data for testing the library, also serving as documentation
+.NET Core 2.1 test project with code and data for testing the library, also serving as documentation
 
 ### License
 [Free Public License 1.0.0](https://opensource.org/licenses/FPL-1.0.0)
