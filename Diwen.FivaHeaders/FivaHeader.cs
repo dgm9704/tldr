@@ -100,7 +100,7 @@ namespace Diwen.FivaHeaders
 
         internal static T FromFile<T>(string path) where T : FivaHeader
         {
-            using (var stream = new FileStream(path, FileMode.Open))
+            using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
                 return FromStream<T>(stream);
         }
 
