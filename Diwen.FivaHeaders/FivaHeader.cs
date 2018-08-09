@@ -67,6 +67,14 @@ namespace Diwen.FivaHeaders
             set => BasicHeader.ReportDataContext.ReportReferenceId = value;
         }
 
+        static XmlWriterSettings XmlWriterSettings = new XmlWriterSettings
+        {
+            Indent = true,
+            IndentChars = "\t",
+            NamespaceHandling = NamespaceHandling.OmitDuplicates,
+            Encoding = Encoding.UTF8
+        };
+
         public bool ContentMatch(FivaHeader other)
         => other != null
             && other.Test == this.Test
@@ -109,7 +117,7 @@ namespace Diwen.FivaHeaders
 
         internal static void ToFile<T>(T header, string path) where T : FivaHeader
         {
-            using (var writer = new XmlTextWriter(path, Encoding.UTF8))
+            using (var writer = XmlWriter.Create(path, XmlWriterSettings))
                 ToXmlWriter(writer, header);
         }
 
