@@ -22,6 +22,7 @@
 namespace Diwen.FivaHeaders
 {
     using System;
+    using System.ComponentModel;
     using System.Xml.Serialization;
 
     [Serializable]
@@ -29,9 +30,11 @@ namespace Diwen.FivaHeaders
     public enum ReportingEntityType
     {
         [XmlEnum("TK-tunnus")]
+        [Description("TK-tunnus")]
         TKtunnus,
 
         [XmlEnum("Y-tunnus")]
+        [Description("Y-tunnus")]
         Ytunnus,
 
         LEI,
