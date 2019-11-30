@@ -1,4 +1,4 @@
-//  Copyright (c) 2017-2018 John Nordberg 
+//  Copyright (c) 2017-2019 John Nordberg 
 //  Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
 
 namespace Diwen.FivaHeaders.Test
@@ -61,6 +61,7 @@ namespace Diwen.FivaHeaders.Test
             ContactPersonEmail = "first.last@example.com",
             ContactPersonTelephone = "+358 00 000 0000",
             Comment = "Foo",
+	    NumberOfFiles = 1,
             Test = true,
             ReportReferenceId = "ab17e980-876a-45a4-87d8-952ba797eae8",
             Files = new[] { "AIF_777_9999999_20171231.encrypted.xml" },

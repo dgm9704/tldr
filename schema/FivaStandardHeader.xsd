@@ -82,6 +82,13 @@
       </xsd:element>
       <xsd:element name="Comment" type="xsd:string" minOccurs="0" />
       <xsd:element name="TestFlag" type="caseInsensitiveBoolean" default="false" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="NumberOfFiles" type="xsd:int" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Number of reporting files referenced by this header. Use 0 if there is header alone.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
 
       <!--   Import Basic Header root element -->
       <xsd:element name="BasicHeader" type="bh:BasicHeaderType" />

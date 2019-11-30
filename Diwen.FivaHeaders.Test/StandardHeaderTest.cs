@@ -1,4 +1,4 @@
-//  Copyright (c) 2017-2018 John Nordberg 
+//  Copyright (c) 2017-2019 John Nordberg 
 //  Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
 
 namespace Diwen.FivaHeaders.Test
@@ -6,6 +6,7 @@ namespace Diwen.FivaHeaders.Test
     using System;
     using System.IO;
     using Xunit;
+
     public class StandardHeaderTest
     {
         [Fact]
@@ -63,6 +64,7 @@ namespace Diwen.FivaHeaders.Test
             ContactPersonTelephone = "+358 00 000 0000",
             Comment = "Bar",
             Test = true,
+	    NumberOfFiles = 1,
             ReportReferenceId = "90aeaa55-275c-4410-874f-951142307d59",
             Files = new[] { "spv_888_00000000000000000098_20180331.xbrl" },
         };

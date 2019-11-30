@@ -4,7 +4,7 @@
 //  Author:
 //       John Nordberg <john.nordberg@gmail.com>
 //
-//  Copyright (c) 2017-2018 John Nordberg
+//  Copyright (c) 2017-2019 John Nordberg
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -44,6 +44,7 @@ namespace Diwen.FivaHeaders
         public string ContactPersonTelephone { get; set; }
         public string Comment { get; set; }
         public string TestFlag { get; set; } = "false";
+        public int NumberOfFiles { get; set; }
         public BasicHeader BasicHeader { get; set; } = new BasicHeader();
 
         [XmlIgnore]
@@ -78,6 +79,7 @@ namespace Diwen.FivaHeaders
         public bool ContentMatch(FivaHeader other)
         => other != null
             && other.Test == this.Test
+	    && other.NumberOfFiles == this.NumberOfFiles
             && other.ReportingEntityType == this.ReportingEntityType
             && other.ReportReferenceId.Equals(this.ReportReferenceId)
             && other.TypeOfReportingInstitution.Equals(this.TypeOfReportingInstitution)

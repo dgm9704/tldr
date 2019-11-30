@@ -16,6 +16,7 @@
     <ContactPersonTelephone>+358 00 000 0000</ContactPersonTelephone>
     <Comment>Foo</Comment>
     <TestFlag>true</TestFlag>
+    <NumberOfFiles>1</NumberOfFiles>
     <BasicHeader>
         <bh:ReportDataContext>
             <bh:ReportReferenceID>ab17e980-876a-45a4-87d8-952ba797eae8</bh:ReportReferenceID>
