@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>0.2.2</Version>
+    <Version>0.3.0-beta</Version>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -22,4 +22,21 @@
       <!-- The DLL case has changed between 4.5 and 4.6; this avoids a warning. -->
       <Reference Include="System.XML" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="COPYING.txt" />
+    <Content Include="COPYING.LESSER.txt" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <Authors>John Nordberg</Authors>
+    <Owners>diwen</Owners>
+    <PackageLicenseUrl>http://www.gnu.org/licenses/lgpl.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/dgm9704/tldr</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>library to help read and write header ("envelope") files used for submitting AIFMDXML/XBRL/CSDR reports to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA).</Description>
+    <PackageReleaseNotes>Add support for NumberOfFiles element</PackageReleaseNotes>
+    <Copyright>Copyright 2018-2019 John Nordberg</Copyright>
+    <PackageTags>fin-fsa XML XBRL CSDR</PackageTags>
+  </PropertyGroup>
 </Project>

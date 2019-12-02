@@ -38,8 +38,6 @@ namespace Diwen.FivaHeaders.Test
         [Fact]
         public void CreateXmlDocument()
         {
-            var tempFile = Path.Combine("data", "standard_header.xml");
-
             var first = CreateFivaAIFMDHeader();
             var document = first.ToXmlDocument();
 
@@ -61,8 +59,8 @@ namespace Diwen.FivaHeaders.Test
             ContactPersonEmail = "first.last@example.com",
             ContactPersonTelephone = "+358 00 000 0000",
             Comment = "Foo",
-	    NumberOfFiles = 1,
             Test = true,
+	    NumberOfFiles = 1,
             ReportReferenceId = "ab17e980-876a-45a4-87d8-952ba797eae8",
             Files = new[] { "AIF_777_9999999_20171231.encrypted.xml" },
         };

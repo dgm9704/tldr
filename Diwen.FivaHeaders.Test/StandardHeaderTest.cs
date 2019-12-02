@@ -39,8 +39,6 @@ namespace Diwen.FivaHeaders.Test
         [Fact]
         public void CreateXmlDocument()
         {
-            var tempFile = Path.Combine("data", "standard_header.xml");
-
             var first = CreateFivaStandardHeader();
             var document = first.ToXmlDocument();
 
