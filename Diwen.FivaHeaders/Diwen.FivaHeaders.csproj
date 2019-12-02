@@ -31,7 +31,8 @@
   <PropertyGroup>
     <Authors>John Nordberg</Authors>
     <Owners>diwen</Owners>
-    <PackageLicenseUrl>http://www.gnu.org/licenses/lgpl.txt</PackageLicenseUrl>
+	    <!-- <PackageLicenseUrl>http://www.gnu.org/licenses/lgpl.txt</PackageLicenseUrl> -->
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/dgm9704/tldr</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>library to help read and write header ("envelope") files used for submitting AIFMDXML/XBRL/CSDR reports to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA).</Description>
