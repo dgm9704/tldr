@@ -1,5 +1,5 @@
 # Introduction 
-tldr is a project to help read and write header ("envelope") files used for submitting AIFMDXML/XBRL reports
+tldr is a project to help read and write header ("envelope") files used for submitting AIFMDXML/XBRL/CSDR reports
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
 
 ## Specifications
