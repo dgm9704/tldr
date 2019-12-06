@@ -95,7 +95,6 @@
           </xsd:documentation> 
   	</xsd:annotation>
       </xsd:element>
-
       <!--   Import Basic Header root element -->
       <xsd:element name="BasicHeader" type="bh:BasicHeaderType" />
     </xsd:all>
