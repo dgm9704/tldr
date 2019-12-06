@@ -50,6 +50,7 @@ namespace Diwen.FivaHeaders
 	    get => NumberOfFiles.GetValueOrDefault(); 
 	    set => NumberOfFiles = value; 
 	}        
+	public string ModuleCode { get; set; }
 	public BasicHeader BasicHeader { get; set; } = new BasicHeader();
 
         [XmlIgnore]

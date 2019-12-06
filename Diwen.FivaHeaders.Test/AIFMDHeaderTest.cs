@@ -61,6 +61,7 @@ namespace Diwen.FivaHeaders.Test
             Comment = "Foo",
             Test = true,
 	    NumberOfFiles = 1,
+	    ModuleCode = "AIF",
             ReportReferenceId = "ab17e980-876a-45a4-87d8-952ba797eae8",
             Files = new[] { "AIF_777_9999999_20171231.encrypted.xml" },
         };

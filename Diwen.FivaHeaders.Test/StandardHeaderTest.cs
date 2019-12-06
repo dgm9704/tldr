@@ -39,6 +39,8 @@ namespace Diwen.FivaHeaders.Test
         [Fact]
         public void CreateXmlDocument()
         {
+            var tempFile = Path.Combine("data", "standard_header.xml");
+
             var first = CreateFivaStandardHeader();
             var document = first.ToXmlDocument();
 
@@ -63,6 +65,7 @@ namespace Diwen.FivaHeaders.Test
             Comment = "Bar",
             Test = true,
 	    NumberOfFiles = 1,
+	    ModuleCode = "spv",
             ReportReferenceId = "90aeaa55-275c-4410-874f-951142307d59",
             Files = new[] { "spv_888_00000000000000000098_20180331.xbrl" },
         };
