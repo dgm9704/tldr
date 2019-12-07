@@ -63,7 +63,11 @@ namespace Diwen.FivaHeaders
 	[XmlIgnore]
 	public int? NumberOfFiles{ get; set; }
 
+	[XmlIgnore]
         public bool XmlNumberOfFilesSpecified => NumberOfFiles.HasValue;
+
+	[XmlIgnore]
+        public bool ModuleCodeSpecified => !string.IsNullOrEmpty(ModuleCode);
 
         [XmlIgnore]
         public string[] Files
