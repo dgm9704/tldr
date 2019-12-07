@@ -44,12 +44,7 @@ namespace Diwen.FivaHeaders
         public string ContactPersonTelephone { get; set; }
         public string Comment { get; set; }
         public string TestFlag { get; set; } = "false";
- 	[XmlElement("NumberOfFiles")]
-	public int XmlNumberOfFiles 
-	{
-	    get => NumberOfFiles.GetValueOrDefault(); 
-	    set => NumberOfFiles = value; 
-	}        
+	public int? NumberOfFiles { get; set; }
 	public string ModuleCode { get; set; }
 	public BasicHeader BasicHeader { get; set; } = new BasicHeader();
 
@@ -61,10 +56,7 @@ namespace Diwen.FivaHeaders
         }
 	
 	[XmlIgnore]
-	public int? NumberOfFiles{ get; set; }
-
-	[XmlIgnore]
-        public bool XmlNumberOfFilesSpecified => NumberOfFiles.HasValue;
+	public bool NumberOfFilesSpecified => NumberOfFiles.HasValue;
 
 	[XmlIgnore]
         public bool ModuleCodeSpecified => !string.IsNullOrEmpty(ModuleCode);
