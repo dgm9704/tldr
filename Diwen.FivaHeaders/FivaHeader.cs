@@ -32,8 +32,16 @@ namespace Diwen.FivaHeaders
     public class FivaHeader
     {
         public DateTime InstanceCreationDateTime { get; set; }
+
+        // For some reason the schema explicitly allows for either xsd:date OR xsd:dateTime ? 
+	// Even when according to reporting instructions, dateTime isn't an accepted value when reporting!
         public string ReportingPeriod { get; set; }
+
+        // For some reason there are two nearly identical schemas!
+        // The only actual difference is that one schema 
+        // has one more allowed value (MFI) for ReportingEntityType !
         public ReportingEntityType ReportingEntityType { get; set; }
+
         public string ReportingEntity { get; set; }
         public string TypeOfReportingInstitution { get; set; }
         public string ReportingApplicationName { get; set; }
@@ -44,13 +52,23 @@ namespace Diwen.FivaHeaders
         public string ContactPersonTelephone { get; set; }
         public string Comment { get; set; }
         public string TestFlag { get; set; } = "false";
+
+	// Number of files referenced could be read from BasicHeader File array, 
+	// but for some reason it needs to be specified here, and only if it is 0 ?
 	public int? NumberOfFiles { get; set; }
+
+	// ModuleCode is already given in header file name, but for some reason 
+	// it needs to specified here, and only if NumberOfFiles is 0 ?
 	public string ModuleCode { get; set; }
+
 	public BasicHeader BasicHeader { get; set; } = new BasicHeader();
 
         [XmlIgnore]
         public bool Test
         {
+	    // For some reason, instead of using xsd:boolean, 
+	    // the schema goes out of its way to allow other values as well ?
+	    // We have to accomodate for that here :(
             get => XmlConvert.ToBoolean(TestFlag.ToLower());
             set => TestFlag = XmlConvert.ToString(value);
         }
@@ -103,8 +121,11 @@ namespace Diwen.FivaHeaders
             ["xsi"] = "http://www.w3.org/2001/XMLSchema-instance"
         };
 
-        private static Lazy<XmlSerializerNamespaces> namespaces = new Lazy<XmlSerializerNamespaces>(() => GetNamespaces());
-        private static Dictionary<Type, XmlSerializer> serializers = new Dictionary<Type, XmlSerializer>();
+        private static Lazy<XmlSerializerNamespaces> namespaces 
+		= new Lazy<XmlSerializerNamespaces>(() => GetNamespaces());
+
+        private static Dictionary<Type, XmlSerializer> serializers 
+		= new Dictionary<Type, XmlSerializer>();
 
         private static XmlSerializerNamespaces Namespaces => namespaces.Value;
 

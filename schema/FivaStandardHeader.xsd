@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsd:schema
-  xmlns="http://www.finanssivalvonta.fi/Raportointi/xbrl/Documents/FivaStandardHeader"
+        xmlns="http://www.finanssivalvonta.fi/Raportointi/xbrl/Documents/FivaStandardHeader"
 	xmlns:bh="http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://www.finanssivalvonta.fi/Raportointi/xbrl/Documents/FivaStandardHeader"
@@ -9,7 +9,6 @@
 
   <!--  Fiva Standard header root element -->
   <xsd:element name="FivaStandardHeader" type="FivaStandardHeaderType" />
-
   <xsd:complexType name="FivaStandardHeaderType">
     <xsd:all>
       <xsd:element name="InstanceCreationDateTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
