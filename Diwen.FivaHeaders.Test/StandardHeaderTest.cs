@@ -62,7 +62,6 @@ namespace Diwen.FivaHeaders.Test
             ContactPersonLastName = "Last",
             ContactPersonEmail = "first.last@example.com",
             ContactPersonTelephone = "+358 00 000 0000",
-            Comment = "Bar",
             Test = true,
 	    NumberOfFiles = 1,
 	    ModuleCode = "spv",
