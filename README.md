@@ -14,7 +14,7 @@ The library DOES NOT VALIDATE CONTENTS of the header, ie. no checks are made for
 Any content should be checked by other means after reading and/or before writing the header file.
 
 # Environment
-I use [Visual Studio Code](https://code.visualstudio.com/) 
+I use Vim and [Visual Studio Code](https://code.visualstudio.com/) 
 on [Arch Linux](https://www.archlinux.org/)
 
 Code is written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/index) 7.0, targeting 
