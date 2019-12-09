@@ -76,9 +76,6 @@ namespace Diwen.FivaHeaders
 	[XmlIgnore]
 	public bool NumberOfFilesSpecified => NumberOfFiles.HasValue;
 
-	[XmlIgnore]
-        public bool ModuleCodeSpecified => !string.IsNullOrEmpty(ModuleCode);
-
         [XmlIgnore]
         public string[] Files
         {
@@ -110,6 +107,9 @@ namespace Diwen.FivaHeaders
             && other.TypeOfReportingInstitution.Equals(this.TypeOfReportingInstitution)
             && other.ReportingEntity.Equals(this.ReportingEntity)
             && other.ReportingPeriod.Equals(this.ReportingPeriod)
+	    && other.ModuleCode == null
+	    	? this.ModuleCode == null
+		: other.ModuleCode.Equals(this.ModuleCode)
             && other.Comment == null
                 ? this.Comment == null
                 : other.Comment.Equals(this.Comment)
