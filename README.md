@@ -2,6 +2,9 @@
 tldr is a project to help read and write header ("envelope") files used for submitting AIFMD/XBRL/CSDR reports
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
 
+## Nuget
+Nuget package is at [https://www.nuget.org/packages/Diwen.FivaHeaders](https://www.nuget.org/packages/Diwen.FivaHeaders)
+
 ## Specifications
 All specifications should be found in FIN-FSA (and Eurofiling) website, eg.
 
