@@ -83,16 +83,18 @@
       <xsd:element name="NumberOfFiles" type="xsd:int" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Number of reporting files referenced by this header. Use 0 if there is header alone.
+            (Optional) Number of reporting files referenced by this header. Use 0 if there is header alone.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="ModuleCode" type="xsd:string" minOccurs="0">
-	<xsd:annotation>
-	  <xsd:documentation>(Optional, required when NumberOfFiles = 0) Technical code of the report. See the reporting guidance for more information.
-          </xsd:documentation> 
-  	</xsd:annotation>
+        <xsd:annotation>
+          <xsd:documentation>
+            (Optional, required when NumberOfFiles = 0) Technical code of the report. See the reporting guidance for more information.
+          </xsd:documentation>
+        </xsd:annotation>
       </xsd:element>
+
       <!--   Import Basic Header root element -->
       <xsd:element name="BasicHeader" type="bh:BasicHeaderType" />
     </xsd:all>
@@ -118,5 +120,5 @@
   <xsd:simpleType name ="caseInsensitiveBoolean">
     <xsd:union memberTypes="xsd:boolean booleanStringCaps" />
   </xsd:simpleType>
-  
+
 </xsd:schema>
