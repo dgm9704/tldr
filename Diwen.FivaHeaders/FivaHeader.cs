@@ -26,11 +26,17 @@ namespace Diwen.FivaHeaders
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Reflection;
     using System.Xml;
     using System.Xml.Serialization;
 
     public class FivaHeader
     {
+ 	static AssemblyName assembly = Assembly.GetExecutingAssembly().GetName();
+        static Version version = assembly.Version;
+        static string id = assembly.Name;
+	static string VersionComment = $" {id} {version} ";
+
         public DateTime InstanceCreationDateTime { get; set; }
 
         // For some reason the schema explicitly allows for either xsd:date OR xsd:dateTime ? 
@@ -148,7 +154,10 @@ namespace Diwen.FivaHeaders
         internal static void ToFile<T>(T header, string path) where T : FivaHeader
         {
             using (var writer = XmlWriter.Create(path, XmlWriterSettings))
+	    {
                 ToXmlWriter(writer, header);
+		writer.WriteComment(VersionComment);
+	    }
         }
 
         private static void ToXmlWriter<T>(XmlWriter writer, T header) where T : FivaHeader
@@ -162,7 +171,10 @@ namespace Diwen.FivaHeaders
             var document = new XmlDocument();
             var navigator = document.CreateNavigator();
             using (XmlWriter writer = navigator.AppendChild())
+	    {
                 GetSerializer<T>().Serialize(writer, header);
+		writer.WriteComment(VersionComment);
+	    }
 
             return document;
         }
