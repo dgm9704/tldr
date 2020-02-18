@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>0.3.1</Version>
+    <Version>0.4.0-beta</Version>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -35,7 +35,7 @@
     <PackageProjectUrl>https://github.com/dgm9704/tldr</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>library to help read and write header ("envelope") files used for submitting reports to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA).</Description>
-    <PackageReleaseNotes>Add comment to output containing name and version of assembly</PackageReleaseNotes>
+    <PackageReleaseNotes>Stricter enforcement of datatypes (ReportingPeriod, TestFlag)</PackageReleaseNotes>
     <Copyright>Copyright 2018-2020 John Nordberg</Copyright>
     <PackageTags>fin-fsa XML XBRL AIFMD CSDR STT MMF</PackageTags>
   </PropertyGroup>

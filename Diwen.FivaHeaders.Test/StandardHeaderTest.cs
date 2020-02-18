@@ -52,7 +52,7 @@ namespace Diwen.FivaHeaders.Test
         => new FivaStandardHeader
         {
             InstanceCreationDateTime = new DateTime(2018, 03, 18, 13, 05, 42, DateTimeKind.Local),
-            ReportingPeriod = "2018-03-31",
+            ReportingPeriod = new DateTime(2018, 03, 31),
             ReportingEntityType = ReportingEntityType.LEI,
             ReportingEntity = "00000000000000000098",
             TypeOfReportingInstitution = "888",
@@ -62,9 +62,9 @@ namespace Diwen.FivaHeaders.Test
             ContactPersonLastName = "Last",
             ContactPersonEmail = "first.last@example.com",
             ContactPersonTelephone = "+358 00 000 0000",
-            Test = true,
-	    NumberOfFiles = 1,
-	    ModuleCode = "spv",
+            TestFlag = true,
+	    	NumberOfFiles = 1,
+	   		ModuleCode = "spv",
             ReportReferenceId = "90aeaa55-275c-4410-874f-951142307d59",
             Files = new[] { "spv_888_00000000000000000098_20180331.xbrl" },
         };
