@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsd:schema
-        xmlns="http://www.finanssivalvonta.fi/Raportointi/xbrl/Documents/FivaStandardHeader"
+  xmlns="http://www.finanssivalvonta.fi/Raportointi/xbrl/Documents/FivaStandardHeader"
 	xmlns:bh="http://www.eurofiling.info/eu/fr/esrs/Header/BasicHeader"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://www.finanssivalvonta.fi/Raportointi/xbrl/Documents/FivaStandardHeader"
@@ -9,10 +9,11 @@
 
   <!--  Fiva Standard header root element -->
   <xsd:element name="FivaStandardHeader" type="FivaStandardHeaderType" />
+
   <xsd:complexType name="FivaStandardHeaderType">
     <xsd:all>
       <xsd:element name="InstanceCreationDateTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
-      <xsd:element name="ReportingPeriod" type="dateOrDateTime" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ReportingPeriod" type="xsd:date" minOccurs="1" maxOccurs="1" />
       <xsd:element name="ReportingEntity" minOccurs="1" maxOccurs="1">
         <xsd:simpleType>
           <xsd:restriction base="xsd:string">
@@ -80,44 +81,25 @@
         </xsd:simpleType>
       </xsd:element>
       <xsd:element name="Comment" type="xsd:string" minOccurs="0" />
-      <xsd:element name="TestFlag" type="caseInsensitiveBoolean" default="false" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="TestFlag" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1" />
       <xsd:element name="NumberOfFiles" type="xsd:int" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            Number of reporting files referenced by this header. Use 0 if there is header alone.
+            (Optional) Number of reporting files referenced by this header. Use 0 if there is header alone.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="ModuleCode" type="xsd:string" minOccurs="0">
-	<xsd:annotation>
-	  <xsd:documentation>(Optional, required when NumberOfFiles = 0) Technical code of the report. See the reporting guidance for more information.
-          </xsd:documentation> 
-  	</xsd:annotation>
+        <xsd:annotation>
+          <xsd:documentation>
+            (Optional, required when NumberOfFiles = 0) Technical code of the report. See the reporting guidance for more information.
+          </xsd:documentation>
+        </xsd:annotation>
       </xsd:element>
+
       <!--   Import Basic Header root element -->
       <xsd:element name="BasicHeader" type="bh:BasicHeaderType" />
     </xsd:all>
   </xsd:complexType>
 
-  <!-- Union of date and dateTime. Used when date is needed and dateTime must be allowed for backwards compatibility.  -->
-  <xsd:simpleType name="dateOrDateTime">
-    <xsd:union memberTypes="xsd:date xsd:dateTime" />
-  </xsd:simpleType>
-  
-  <!-- Non-standard forms of boolean values as string. -->
-  <xsd:simpleType name="booleanStringCaps">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="True" />
-      <xsd:enumeration value="TRUE" />
-      <xsd:enumeration value="False" />
-      <xsd:enumeration value="FALSE" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  
-  <!-- Allows boolean values and some non-standard boolean string values.
-       Document creation should prefer xsd:boolean values instead of the non-standard ones. -->
-  <xsd:simpleType name ="caseInsensitiveBoolean">
-    <xsd:union memberTypes="xsd:boolean booleanStringCaps" />
-  </xsd:simpleType>
-  
 </xsd:schema>

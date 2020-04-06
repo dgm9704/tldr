@@ -48,7 +48,7 @@ namespace Diwen.FivaHeaders.Test
         => new FivaAIFMDHeader
         {
             InstanceCreationDateTime = new DateTime(2018, 03, 18, 13, 03, 27, DateTimeKind.Local), 
-            ReportingPeriod = "2017-12-31",
+            ReportingPeriod = new DateTime(2017, 12, 31),
             ReportingEntityType = ReportingEntityType.TKtunnus,
             ReportingEntity = "9999999",
             TypeOfReportingInstitution = "777",
@@ -59,7 +59,7 @@ namespace Diwen.FivaHeaders.Test
             ContactPersonEmail = "first.last@example.com",
             ContactPersonTelephone = "+358 00 000 0000",
             Comment = "Foo",
-            Test = true,
+            TestFlag = true,
             ReportReferenceId = "ab17e980-876a-45a4-87d8-952ba797eae8",
             Files = new[] { "AIF_777_9999999_20171231.encrypted.xml" },
         };

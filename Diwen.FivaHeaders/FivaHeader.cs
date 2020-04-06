@@ -4,7 +4,7 @@
 //  Author:
 //       John Nordberg <john.nordberg@gmail.com>
 //
-//  Copyright (c) 2017-2019 John Nordberg
+//  Copyright (c) 2017-2020 John Nordberg
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as published by
@@ -26,20 +26,23 @@ namespace Diwen.FivaHeaders
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Reflection;
     using System.Xml;
     using System.Xml.Serialization;
 
     public class FivaHeader
     {
+	 	static AssemblyName assembly = Assembly.GetExecutingAssembly().GetName();
+		static string VersionComment = $" {assembly.Name} {assembly.Version} ";
+
         public DateTime InstanceCreationDateTime { get; set; }
 
-        // For some reason the schema explicitly allows for either xsd:date OR xsd:dateTime ? 
-	// Even when according to reporting instructions, dateTime isn't an accepted value when reporting!
-        public string ReportingPeriod { get; set; }
+		[XmlElement(DataType = "date")]
+        public DateTime ReportingPeriod { get; set; }
 
-        // For some reason there are two nearly identical schemas!
-        // The only actual difference is that one schema 
-        // has one more allowed value (MFI) for ReportingEntityType !
+        // For some reason there are two nearly identical schemas
+        // The only actual difference is that one schema
+        // has one more allowed value (MFI) for ReportingEntityType
         public ReportingEntityType ReportingEntityType { get; set; }
 
         public string ReportingEntity { get; set; }
@@ -51,30 +54,31 @@ namespace Diwen.FivaHeaders
         public string ContactPersonEmail { get; set; }
         public string ContactPersonTelephone { get; set; }
         public string Comment { get; set; }
-        public string TestFlag { get; set; } = "false";
+		[XmlElement(DataType = "boolean")]
+        public bool TestFlag { get; set; }
 
-	// Number of files referenced could be read from BasicHeader File array, 
-	// but for some reason it needs to be specified here, and only if it is 0 ?
-	public int? NumberOfFiles { get; set; }
+		// Number of files referenced could be read from BasicHeader File array, 
+		// but for some reason it needs to be specified here, and only if it is 0 ?
+		public int? NumberOfFiles { get; set; }
 
-	// ModuleCode is already given in header file name, but for some reason 
-	// it needs to specified here, and only if NumberOfFiles is 0 ?
-	public string ModuleCode { get; set; }
+		// ModuleCode is already given in header file name, but for some reason 
+		// it needs to specified here, and only if NumberOfFiles is 0 ?
+		public string ModuleCode { get; set; }
 
-	public BasicHeader BasicHeader { get; set; } = new BasicHeader();
+		public BasicHeader BasicHeader { get; set; } = new BasicHeader();
 
-        [XmlIgnore]
-        public bool Test
-        {
-	    // For some reason, instead of using xsd:boolean, 
-	    // the schema goes out of its way to allow other values as well ?
-	    // We have to accomodate for that here :(
-            get => XmlConvert.ToBoolean(TestFlag.ToLower());
-            set => TestFlag = XmlConvert.ToString(value);
-        }
+        ////[XmlIgnore]
+        ////public bool Test
+        ////{
+		////    // For some reason, instead of using xsd:boolean, 
+		////    // the schema goes out of its way to allow other values as well ?
+		////    // We have to accomodate for that here :(
+        ////    get => XmlConvert.ToBoolean(TestFlag.ToLower());
+        ////    set => TestFlag = XmlConvert.ToString(value);
+        ////}
 	
-	[XmlIgnore]
-	public bool NumberOfFilesSpecified => NumberOfFiles.HasValue;
+		[XmlIgnore]
+		public bool NumberOfFilesSpecified => NumberOfFiles.HasValue;
 
         [XmlIgnore]
         public string[] Files
@@ -100,16 +104,16 @@ namespace Diwen.FivaHeaders
 
         public bool ContentMatch(FivaHeader other)
         => other != null
-            && other.Test == this.Test
-	    && other.NumberOfFiles == this.NumberOfFiles
+            && other.TestFlag == this.TestFlag
+		    && other.NumberOfFiles == this.NumberOfFiles
             && other.ReportingEntityType == this.ReportingEntityType
             && other.ReportReferenceId.Equals(this.ReportReferenceId)
             && other.TypeOfReportingInstitution.Equals(this.TypeOfReportingInstitution)
             && other.ReportingEntity.Equals(this.ReportingEntity)
             && other.ReportingPeriod.Equals(this.ReportingPeriod)
-	    && other.ModuleCode == null
-	    	? this.ModuleCode == null
-		: other.ModuleCode.Equals(this.ModuleCode)
+		    && other.ModuleCode == null
+		    	? this.ModuleCode == null
+				: other.ModuleCode.Equals(this.ModuleCode)
             && other.Comment == null
                 ? this.Comment == null
                 : other.Comment.Equals(this.Comment)
@@ -148,7 +152,10 @@ namespace Diwen.FivaHeaders
         internal static void ToFile<T>(T header, string path) where T : FivaHeader
         {
             using (var writer = XmlWriter.Create(path, XmlWriterSettings))
+		    {
                 ToXmlWriter(writer, header);
+				writer.WriteComment(VersionComment);
+		    }
         }
 
         private static void ToXmlWriter<T>(XmlWriter writer, T header) where T : FivaHeader
@@ -162,7 +169,10 @@ namespace Diwen.FivaHeaders
             var document = new XmlDocument();
             var navigator = document.CreateNavigator();
             using (XmlWriter writer = navigator.AppendChild())
+		    {
                 GetSerializer<T>().Serialize(writer, header);
+			writer.WriteComment(VersionComment);
+		    }
 
             return document;
         }
