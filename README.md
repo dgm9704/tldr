@@ -1,3 +1,5 @@
+![.NET Core](https://github.com/dgm9704/tldr/workflows/.NET%20Core/badge.svg)
+
 # Introduction 
 tldr is a project to help read and write header ("envelope") files used for submitting AIFMD/XBRL/CSDR reports
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
