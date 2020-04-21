@@ -5,7 +5,7 @@ tldr is a project to help read and write header ("envelope") files used for subm
 to Finanssivalvonta - Finnish Financial Supervisory Authority (FIN-FSA)
 
 ## Nuget
-Nuget package is at [https://www.nuget.org/packages/Diwen.FivaHeaders](https://www.nuget.org/packages/Diwen.FivaHeaders)
+[![nuget](https://img.shields.io/nuget/v/Diwen.FivaHeaders.svg)](https://www.nuget.org/packages/Diwen.FivaHeaders/)
 
 ## Specifications
 All specifications should be found in FIN-FSA (and Eurofiling) website, eg.
